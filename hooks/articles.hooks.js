@@ -60,6 +60,36 @@ const useArticle = () => {
   };
 };
 
+const useGetUserArticles = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const router = useRouter()
+  const { id } = router.query
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true)
+      const res = await fetch(apiUrl + "" + "/posts?userId="+id)
+      const data = await res.json();
+      setData(data);
+      setLoading(false)
+    }
+
+    fetchData().catch((e) => {
+      setError(e)
+      setLoading(false)
+    })
+
+  }, [id]);
+
+  return {
+    data,
+    loading,
+    error,
+  };
+};
+
 const useDelteArticle = () => {
   const [isSuccess, setIsSuccess] = useState(undefined)
 
@@ -98,4 +128,4 @@ const useEditArticle = () => {
 
 
 
-export { useArticles, useDelteArticle, useArticle, useEditArticle }
+export { useArticles, useDelteArticle, useArticle, useEditArticle, useGetUserArticles }

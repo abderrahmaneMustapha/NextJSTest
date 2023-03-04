@@ -1,14 +1,14 @@
-import List from "../../components/list"
+import List from "../../../components/list"
 import { TextField, Button } from '@mui/material'
-import { useArticles, useDelteArticle } from "../../hooks/articles.hooks"
-import { useSearch } from "../../hooks/search.hooks"
+import { useGetUserArticles, useDelteArticle } from "../../../hooks/articles.hooks"
+import { useSearch } from "../../../hooks/search.hooks"
 import { useRouter } from 'next/navigation';
 
-const Articles = () => {
-  const { data, loading, error } = useArticles()
+const UserArticles = () => {
+  const { data, loading, error } = useGetUserArticles()
   const { deleteArticle, isSuccess } = useDelteArticle()
   const { search, searchData } = useSearch(['body'])
-  const router = useRouter();
+
 
   const handleSearch = (event) => {
     const query = event.target.value.split(' ')[0]
@@ -56,7 +56,7 @@ const Articles = () => {
   return (
     <div className="container" >
       <header className="header">
-        <h1>Articles list</h1>
+        <h1>articles list</h1>
       </header>
       <section>
         <TextField id="outlined-search" label="Search field" type="search" onChange={handleSearch} />
@@ -66,4 +66,4 @@ const Articles = () => {
   )
 }
 
-export default Articles
+export default UserArticles
