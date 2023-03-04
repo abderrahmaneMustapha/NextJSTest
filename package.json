@@ -6,6 +6,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.11",
+    "@mui/x-data-grid": "^6.0.0",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0"

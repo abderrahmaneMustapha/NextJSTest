@@ -36,3 +36,16 @@ button {
   padding: 0.5rem 1rem;
   font-weight: bold;
 }
+
+.container {
+  height: 100vh;
+  padding: 2em;
+}
+
+.header {
+  padding-bottom: 2em;
+}
+
+section {
+  margin-bottom: 1em;
+}
